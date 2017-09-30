@@ -99,27 +99,100 @@ seq(1, 10, 2)
 seq(1, 10, length.out = 20)
 ```
 
+2.5 Übungsaufgaben
+```{r}
+#Zahlen runden
+x <- rnorm(10, mean = 1, sd = 0.5)
+round(x = x, digits = 0)
+round(x = x, digits = 3)
+(zahl <- 3.45263)
+ceiling(zahl)
+floor(zahl)
+
+#Mittelwert berechnen
+df <- data_frame(geschlecht = sample(c("male", "female"),size = 24,replace = TRUE), alter = runif(24, min = 19, max = 45))
+
+mean(df$alter)
+summary(df)
+
+#Matrizen
+##1
+m1 <- matrix(rnorm(48, mean = 110, sd = 5), ncol = 4)
+m2 <- matrix(rnorm(48, mean = 100, sd = 10), ncol = 4)
+m3 <- rbind(m1, m2)
+
+##2
+m3[1:12,]
+m3[1:12,] == m1
+
+#Character vectors
+
+ID <- c(1, 2, 3, 4, 5)
+Initialen <- c("RS", "MM", "PD", "PG", "DK")
+Alter <- c(44, 78, 22, 34, 67, 59)
+
+personen <- paste(ID, Initialen, Alter, sep = "-")
+
+#Data Frame
+
+library(dplyr)
+library(tidyr)
+
+kein_alkohol <- c(64, 58, 64)
+placebo <- c(74, 79, 72)
+anti_placebo <- c(71, 69, 67)
+alkohol <- c(69, 73, 74)
+
+alk_aggr <- data_frame(kein_alkohol = kein_alkohol,
+                            placebo = placebo,
+                            anti_placebo = anti_placebo,
+                            alkohol = alkohol)
+alk_aggr <- alk_aggr %>%
+    gather(key = alkoholbedingung, value = aggressivitaet) %>%
+    mutate(alkoholbedingung = factor(alkoholbedingung))
+
+levels(alk_aggr$alkoholbedingung)
+levels(alk_aggr$alkoholbedingung) <- c("placebo", 
+                                       "anti_placebo", 
+                                       "kein_alkohol", 
+                                       "alkohol")
+levels(alk_aggr$alkoholbedingung)
+alk_aggr$alkoholbedingung <- relevel(alk_aggr$alkoholbedingung, ref = "placebo")
+levels(alk_aggr$alkoholbedingung)
+
+#Fortgeschrittene Aufgaben:
+##1
+x <- seq(1, 20, by = 1)
+x[x %% 2==0]
+##2
+x[x %% 2==1]
+```
+
+# Datensätze
+3.1 
+```{r}
+kein_alkohol <- c(64, 58, 64)
+placebo <- c(74, 79, 72)
+anti_placebo <- c(71, 69, 67)
+alkohol <- c(69, 73, 74)
+
+kein_alkohol <- data_frame(aggressivitaet = kein_alkohol,
+                           alkoholbedingung = "kein_alkohol")
+placebo <- data_frame(aggressivitaet = placebo,
+                      alkoholbedingung = "placebo")
+anti_placebo <- data_frame(aggressivitaet = anti_placebo,
+                           alkoholbedingung = "anti_placebo")
+alkohol <- data_frame(aggressivitaet = alkohol,
+                      alkoholbedingung = "alkohol")
+alk_aggr <- bind_rows(kein_alkohol,
+                      placebo,
+                      anti_placebo,
+                      alkohol)
+alk_aggr$alkoholbedingung <- factor(alk_aggr$alkoholbedingung)
+```
 
 
 
 
 This is an [R Markdown](http://rmarkdown.rstudio.com) Notebook. When you execute code within the notebook, the results appear beneath the code. 
 
-Try executing this chunk by clicking the *Run* button within the chunk or by placing your cursor inside it and pressing *Cmd+Shift+Enter*. 
-
-```{r}
-plot(cars)
-```
-
-Add a new chunk by clicking the *Insert Chunk* button on the toolbar or by pressing *Cmd+Option+I*.
-
-When you save the notebook, an HTML file containing the code and output will be saved alongside it (click the *Preview* button or press *Cmd+Shift+K* to preview the HTML file).
- 
-
-
-```
-
-x<-runif(54)
-boxplot(x)
-hist(x)
-```
