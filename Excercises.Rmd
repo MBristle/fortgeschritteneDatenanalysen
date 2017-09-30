@@ -1,0 +1,125 @@
+---
+title: "Excercise Section"
+output:
+  pdf_document:
+    toc: yes
+  word_document:
+    toc: yes
+---
+
+# About
+
+The Excercises follow the course "[Einführung in die Datenanalyse mit R](https://methodenlehre.github.io/425464-FS2017-intro-to-R/index.html)". 
+
+A useful Markdown Cheatsheet can be found  [here on Github](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet).
+
+# Chapter 1
+1.3 Help
+```{r}
+# install.packages("tidyverse")
+library(dplyr)
+?dplyr
+```
+
+1.4 Arbeiten mit RStudio
+
+```{r}
+x <- c(101, 105, 99, 87, 102, 98)
+boxplot(x)
+```
+
+# Chapter 2
+
+2.1 Operatoren und Funktionen
+```{r}
+#1
+(1/3)*(sum(1,3,5,7,2)/sum(3,5,4))
+
+#2 
+exp(1)
+
+#3
+
+sqrt(2)
+
+#4
+
+3^(1/8)
+
+#5
+
+sin(2*pi)
+
+#6
+
+log2(8)
+log(8)/log(2)
+```
+
+
+```{r}
+#1
+seq(from=0, to=100,by=5)
+
+#2
+vector <- c(1,3,4,7,11,2)
+mean(vector)
+
+#3 
+max(vector)-min(vector)
+
+#4
+sum(vector)
+
+#5
+scale(vector)
+
+#6
+sample(c(0,1), size = 100, replace = T)
+
+#7
+sample(c(0,1), size = 100, replace = T,prob = c(.25,.75))
+
+#8
+rep(3,100)
+```
+
+2.2 Variablen definieren
+1. Just DO it!
+2. round(x=,digits=) 
+3. rnorm(n, mean = 0, sd = 0)
+4. seq(from = 1, to = 1, by = ((to - from)/(length.out - 1)),
+    length.out = NULL, along.with = NULL, ...)
+5.
+```{r}
+seq()
+seq(1, 10)
+seq(1, 10, 2)
+#seq(1, 10, 2, 20) #--> too many Arguments
+seq(1, 10, length.out = 20)
+```
+
+
+
+
+
+This is an [R Markdown](http://rmarkdown.rstudio.com) Notebook. When you execute code within the notebook, the results appear beneath the code. 
+
+Try executing this chunk by clicking the *Run* button within the chunk or by placing your cursor inside it and pressing *Cmd+Shift+Enter*. 
+
+```{r}
+plot(cars)
+```
+
+Add a new chunk by clicking the *Insert Chunk* button on the toolbar or by pressing *Cmd+Option+I*.
+
+When you save the notebook, an HTML file containing the code and output will be saved alongside it (click the *Preview* button or press *Cmd+Shift+K* to preview the HTML file).
+ 
+
+
+```
+
+x<-runif(54)
+boxplot(x)
+hist(x)
+```
