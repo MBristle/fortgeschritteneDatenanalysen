@@ -166,6 +166,9 @@ x <- seq(1, 20, by = 1)
 x[x %% 2==0]
 ##2
 x[x %% 2==1]
+#For ||, && and isTRUE, only  length-one logical vector.
+x[(x%%3==0)&&!(x%%5==0)]
+
 ```
 
 # Datensätze
@@ -189,8 +192,32 @@ alk_aggr <- bind_rows(kein_alkohol,
                       anti_placebo,
                       alkohol)
 alk_aggr$alkoholbedingung <- factor(alk_aggr$alkoholbedingung)
+
 ```
 
+```{r}
+library(haven)
+Therapy <- read_sav("/Users/mirko/Dropbox/UNI/Psychologie/Fortgeschrittene Datenanalyse mit R/Daten/Therapy.sav")
+
+attributes(Therapy$Gruppe)
+attributes(Therapy$Vpnr)
+Therapy$Vpnr <- as.factor(Therapy$Vpnr)
+Therapy$Gruppe <- as_factor(Therapy$Gruppe)
+levels(Therapy$Gruppe)
+
+library(dplyr)
+library(tidyr)
+Therapy_long <- Therapy %>%
+    # Difference_PrePost weglassen
+    select(-Difference_PrePost) %>%
+    # zu long konvertieren
+    gather(key = messzeitpunkt, 
+           value = rating, 
+           Pretest, Posttest, -Vpnr, -Gruppe) %>%
+    mutate(messzeitpunkt = as.factor(messzeitpunkt))
+levels(Therapy_long$messzeitpunkt)
+
+```
 
 
 
