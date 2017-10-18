@@ -197,7 +197,7 @@ alk_aggr$alkoholbedingung <- factor(alk_aggr$alkoholbedingung)
 
 ```{r}
 library(haven)
-Therapy <- read_sav("/Users/mirko/Dropbox/UNI/Psychologie/Fortgeschrittene Datenanalyse mit R/Daten/Therapy.sav")
+Therapy <- read_sav("/Users/mirko/Dropbox/UNI/Psychologie/Datenanalyse mit R/Daten/Therapy.sav")
 
 attributes(Therapy$Gruppe)
 attributes(Therapy$Vpnr)
@@ -219,6 +219,101 @@ levels(Therapy_long$messzeitpunkt)
 
 ```
 
+## Übung 4.5
+
+```{r}
+library(tidyr)
+library(dplyr)
+library(readr)
+rt_wide <- read_csv("/Users/mirko/Dropbox/UNI/Psychologie/Datenanalyse mit R/Daten/RTdata.csv")
+
+rt_wide
+
+rt_long <- rt_wide %>%
+    gather(key = condition, value = rt,
+           control, slow, fast, -ID) %>%
+    mutate(ID = factor(ID),
+           condition = factor(condition))
+
+summary_rt <- rt_long %>%
+    group_by(ID, condition) %>%
+    summarise(mean_rt = mean(rt),
+              sd_rt = sd(rt))
+summary_rt
+
+rt_long <- rt_long %>%
+    mutate(log_rt = log(rt))
+rt_long
+
+```
+
+
+
+```{r}
+library(dplyr)
+library(tidyr)
+library(stringr)
+library(haven)
+
+westost <- read_sav("/Users/mirko/Dropbox/UNI/Psychologie/Datenanalyse mit R/Daten/Beispieldatensatz.sav")
+westost
+
+westost <- westost %>%
+    mutate(westost = factor(westost),
+           geschlecht = factor(geschlecht),
+           ID = factor(ID))
+
+westost %>%
+    group_by(geschlecht) %>%
+    summarise(alter_mw = round(mean(alter), 1),
+              alter_sd = round(sd(alter), 1))
+
+# Variablen auswählen
+unterstuetzung <- westost %>%
+    select(ID, westost, unt_freunde, unt_eltern)
+
+# hat es fehlende Werte?
+unterstuetzung[!complete.cases(unterstuetzung), ]
+# fehlende Werte ausschliessen
+unterstuetzung <- unterstuetzung %>% 
+    drop_na()
+# von wide zu long
+unterstuetzung <- unterstuetzung %>%
+    gather(key = freunde_eltern,
+           value = unterstuetzung, -ID, -westost)
+# freunde_eltern variable zu factor konvertieren
+unterstuetzung <- unterstuetzung %>%
+    mutate(freunde_eltern = factor(freunde_eltern))
+# Stufen umbennen ("unt_" entfernen)
+unterstuetzung <- unterstuetzung %>%
+        mutate(freunde_eltern = str_replace(freunde_eltern,".*_", ""))
+# Data Frame anschauen
+unterstuetzung
+
+zufriedenheit_wide <- westost %>%
+    select(ID, starts_with("leben_"), -ends_with("gesamt"))
+zufriedenheit_wide
+
+zufriedenheit_long <- zufriedenheit_wide %>% 
+    gather(key = lebensbereich, value = zufriedenheit, -ID)
+
+# Zeilen mit complete.cases() auswählen
+# Die Verneinung ist !complete.cases()
+
+# mit head(20) werden nur die ersten 20 in der Konsole angezeigt:
+!complete.cases(zufriedenheit_wide) %>% 
+    head(20)
+```
+
+
+```{r}
+library(readr)
+library(tidyr)
+library(dplyr)
+titanic_data<-read_csv("/Users/mirko/Dropbox/UNI/Psychologie/Datenanalyse mit R/Daten/titanic.csv")
+
+
+```
 
 
 This is an [R Markdown](http://rmarkdown.rstudio.com) Notebook. When you execute code within the notebook, the results appear beneath the code. 
