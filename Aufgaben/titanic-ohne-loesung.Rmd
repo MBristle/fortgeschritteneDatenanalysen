@@ -115,3 +115,55 @@ Unser Ziel ist, die Überlebenswahrscheinlicheit vorherzusagen. Welche statistis
 glm(...)
 ```
 
+
+graphische Darstellung:
+
+```{r}
+a<- switch(age,)
+```
+
+
+
+
+
+SVM
+```{r}
+library(e1071)
+library(caret)
+library(NLP)
+library(tm)
+
+titanic_1$surv<-if_else(titanic_1$Survived==1,TRUE,FALSE)
+trainPositive<-subset(titanic_1,surv)
+testnegative<-subset(titanic_1,surv)
+inTrain<-createDataPartition(1:nrow(trainPositive),p=0.6,list=FALSE)
+
+trainpredictors<-as.matrix(titanic_1[inTrain,c(3,5,9)])
+trainLabels<-as.matrix( trainPositive[inTrain,2])
+
+testPositive<-titanic_1[-inTrain,]
+testPosNeg<-rbind(testPositive,testnegative)
+
+testpredictors<-testPosNeg[,c(3,5,9)]
+testLabels<-testPosNeg[,2]
+
+svm.model<-svm(trainpredictors,y=NULL,
+               type='one-classification',
+               nu=0.01,
+               scale=TRUE,
+               kernel="linear")
+
+svm.predtrain<-predict(svm.model,trainpredictors)
+svm.predtest<-predict(svm.model,testpredictors)
+
+confTrain<-table(Predicted=svm.predtrain,Reference=trainLabels)
+confTest<-table(Predicted=svm.predtest,Reference=testLabels)
+
+confusionMatrix(confTest,positive='TRUE')
+
+print(confTrain)
+print(confTest)
+
+```
+
+
