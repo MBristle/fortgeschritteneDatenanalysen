@@ -4,13 +4,11 @@ library(pacman)
 p_load(readr)
 p_load(lme4)
 p_load(tableone)
-p_load(tidyverse)
 p_load(ggplot2)
 p_load(merTools)
 p_load(brms)
-p_load(shinystan)
 p_load(parallel)
-
+p_load(dplyr)
 
 options (mc.cores=parallel::detectCores ()) # Run on multiple cores
 #physio<-na.omit(filter(PhysioData_1,(grepl("Stimulus",Target))&(Time!=-2)))
@@ -75,7 +73,7 @@ formulas<-list(#"Value~1",
                "Value~1+Factor1*Factor2 * betweenCond + (1|BiopacSubject)+ (1|Spielfeld)",
                
                "Value~1+Factor1*Factor2 * betweenCond + Time + (1|BiopacSubject)+(1|Spielfeld)",
-               "Value~1+Factor1*Factor2 * betweenCond * Time + (1|BiopacSubject)+ (1|Spielfeld)"
+               "Value~1+Factor1*Factor2 * betweenCond * Time + (1|BiopacSubject)+(1|Spielfeld)"
 )
 
 
@@ -94,6 +92,6 @@ models <- split(models, seq(nrow(models)))
 #cl <- makeCluster(no_cores)
 #clusterExport(cl, list("getBRMModel","read_rds"))
 #est_model<-parLapply(cl,models,function(x,y){getBRMModel(dataframe = x,data=y,path = "models/")},y=physio)
-est_model<-lapply(models,function(x,y){getBRMModel(dataframe = x,data=y,path = "models/")},y=physio)
+est_model<-lapply(models[1:3],function(x,y){getBRMModel(dataframe = x,data=y,path = "models/")},y=physio)
 
 #stopCluster(cl)

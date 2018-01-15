@@ -59,9 +59,11 @@ col <- c("Target","Measurement", "BiopacSubject","BiopacTrail","Time","Gruppe","
 PhysioData["Time"]<-as.numeric(as.character(unlist((PhysioData["Time"]))))
 PhysioData[col]<-lapply(PhysioData[col],factor)
 sapply(PhysioData, class)
-  
+
+if(F){  
 tbo<-CreateTableOne(data = PhysioData )
 summary(tbo) 
+}
 rm(col,PhysioData_org)
 ```
 
@@ -163,15 +165,16 @@ qplot(Time, Value, data=physio_RRi, geom=c("boxplot"),
    fill=Time, main="Kategorial Time (s) against BPM",
    xlab="Time(s)", ylab="BPM")
 
+
+mg <- ggplot(physio_RRi, aes(x = VasSlide.RT, y =VasSlide.VAS ,colour = factor(BiopacSubject))) + geom_point()
+mg + facet_grid(Factor1 + Factor2 ~ betweenCond)
 ```
 
 ## brms model
-
 ```{r}
 options (mc.cores=parallel::detectCores ()) # Run on multiple cores
-physio<-na.omit(filter(PhysioData_1,(grepl("Stimulus",Target))&(Time!=-2)))
- 
-getBRMModel <- function(dataframe=NULL,form=NULL,measurement=NULL,data=NULL,name=NULL,path="",prior=NULL,autocor=NULL) {
+
+getBRMModel <- function(dataframe=NULL,form=NULL,measurement=NULL,data=NULL,name=NULL,path="",family = NULL, prior=NULL,autocor=NULL) {
     options (mc.cores=parallel::detectCores ()) # Run on multiple cores
     if (!is.null( dataframe)){
       form=formula(dataframe$formulas)
@@ -182,25 +185,127 @@ getBRMModel <- function(dataframe=NULL,form=NULL,measurement=NULL,data=NULL,name
     assertthat::not_empty(data)
     assertthat::not_empty(name)
     assertthat::not_empty(measurement)
-    data_f<- filter(data,Measurement==measurement)
+    
+    tryCatch(
+      {
+        data<- filter(data,Measurement==measurement)
+      },
+        error=function(cond) {
+          message(cond)
+      }
+    )
+    
   
   
     out <- tryCatch(
         {
-            read_rds(paste0(path,name,".rds"))
+            read_rds(paste0(path,measurement,"_",name,".rds"))
         },
         error=function(cond) {
             message(cond)
             cat(paste("\n\nFile does not seem to exist: ", paste0(path, name), "\nnew Model will be calculated and saved with the specified name. \nGo grab a cup of coffee  and do 10 Push-ups:)\n\n"))
             
-            #model<-brm(formula,data = data,prior=prior,autocor=autocor)
-            model<-lmer(form,data = data_f)
-            saveRDS(model,paste0(path,name,".rds"))
+            model<-brm(formula,data = data,prior=prior,family = family, autocor=autocor)
+
+            saveRDS(model,paste0(path,measurement,"_",name,".rds"))
             return(model)
         }
     )    
     return(out)
 }
+
+```
+
+
+### Verhalten 
+```{r}
+p_load(readxl)
+sp<-read_excel(paste0(SysDir,
+                      "SoOp/deprecated/Soccer deprecated/original/rawDaten/soccerPlayer/E-Prime Daten/Merge_VP01_VP30.xlsx")) 
+sp$betweenCond<-"soccerPlayer"
+nsp<-read_excel(paste0(SysDir,
+                       "SoOp/deprecated/Soccer deprecated/original/rawDaten/nonSoccerPlayer/E-Prime Daten/Merge_VP01_VP30.xlsx")) 
+nsp$betweenCond<-"nonSoccerPlayer"
+behaviorData<-rbind(sp,nsp) %>% select( c(Name,Gruppe,betweenCond,Spielfeld,VasSlide.RT,VasSlide.VAS))
+behaviorData<-behaviorData %>% filter(!grepl("Bsp",Spielfeld))
+#create condition
+behaviorData$Factor1<-if_else(grepl(paste(c("Selbst","Ingroup1","Ingroup2"),collapse="|"),behaviorData$Gruppe),"Us","Them")
+behaviorData$Factor2<-if_else(grepl(paste(c("Selbst","Konkurrent"),collapse="|"),behaviorData$Gruppe),"Single",
+                             if_else(grepl(paste(c("Ingroup1","Outgroup1"),collapse="|"),behaviorData$Gruppe),"Team_1","Team_2")) 
+#aggregate spielfeld 
+behaviorData$Spielfeld<-as.numeric(as.character(unlist(behaviorData$Spielfeld)))%%16+1
+behaviorData$VasSlide.RT<-if_else(behaviorData$VasSlide.RT!=0,behaviorData$VasSlide.RT,NULL)
+#plot
+mg <- ggplot(behaviorData, aes(x = VasSlide.RT, y =VasSlide.VAS ,colour = factor(Name))) + geom_point()
+mg + facet_grid(Factor1 + Factor2 ~ betweenCond)
+#Modeling
+saveRDS(behaviorData,"behavior.rds")
+
+names_behavior<-list("m0",
+             "m1a",
+             "m1b",
+             
+             "m2",
+             "m2a",
+             "m2b",
+             "m2c"
+             )
+formulas_behavior<-list("VasSlide.VAS~1",
+                
+                "VasSlide.VAS~1+(1|Name)", 
+                "VasSlide.VAS~1+(1|Spielfeld)",
+                
+                "VasSlide.VAS~1+Factor1+Factor2 + (1|Name)+ (1|Spielfeld)",
+                "VasSlide.VAS~1+Factor1*Factor2 + (1|Name)+ (1|Spielfeld)",
+                "VasSlide.VAS~1+Factor1*Factor2 + betweenCond + (1|Name)+ (1|Spielfeld)",
+                "VasSlide.VAS~1+Factor1*Factor2 * betweenCond + (1|Name)+ (1|Spielfeld)"
+                )
+
+models<-data_frame(formulas_behavior,names_behavior)
+models$measurement<-"VAS"
+
+est_model<-lapply(models[1,],function(x,y){getBRMModel(dataframe = x,data = y,family = cumulative("logit"))},y=behaviorData)
+
+
+
+
+```
+
+### Reaction Times
+```{r}
+names_RT<-list("m0",
+             "m1a",
+             "m1b",
+             
+             "m2",
+             "m2a",
+             "m2b",
+             "m2c"
+             )
+formulas_RT<-list("VasSlide.RT~1",
+                
+                "VasSlide.RT~1+(1|Name)", 
+                "VasSlide.RT~1+(1|Spielfeld)",
+                
+                "VasSlide.RT~1+Factor1+Factor2 + (1|Name)+ (1|Spielfeld)",
+                "VasSlide.RT~1+Factor1*Factor2 + (1|Name)+ (1|Spielfeld)",
+                "VasSlide.RT~1+Factor1*Factor2 + betweenCond + (1|Name)+ (1|Spielfeld)",
+                "VasSlide.RT~1+Factor1*Factor2 * betweenCond + (1|Name)+ (1|Spielfeld)"
+                )
+models<-data_frame(formulas_RT,names_RT)
+models$measurement<-"RT"
+est_model<-lapply(models,function(x,y){getBRMModel(dataframe = x,data = y,family = exgaussian())},y=behaviorData)
+
+```
+
+
+
+### Physiologie 
+```{r}
+options (mc.cores=parallel::detectCores ()) # Run on multiple cores
+physio<-na.omit(filter(PhysioData_1,(grepl("Stimulus",Target))&(Time!=-2)))
+ 
+
 
 
 model0 <- getBRMModel(formula = (Value~1),data=physio_RRi,name = "brm_model0")
