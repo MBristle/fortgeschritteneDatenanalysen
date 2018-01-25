@@ -8,3 +8,17 @@ In diesem Repository finden sich die Code Snippets und R Markdown-Dateien für d
 
 Die Ergebnisse wurden in einem Bericht zusammengefassst und alls Leistungsnachweis des Kurses eingereicht.
 
+## Der Code wurde auf Github gemaintained:
+
+- [Projek-Datei](Project.Rmd) umfasst die Aufbereitung der Daten und alle Analysen sowie Kommentare zu den Daten. Diese ist die Grundlage für die Supplementory Information. 
+### Skripte
+- Funktion für die Berechnung der Stan-Modelle: [getBRMModel](Scripts/getBRMModel.R)
+-  Berechnung der Verhaltensmodelle: [Verhaltensmodelle](brms_b.R)
+-  Berechnung der Reaktionszeitmodelle: [Reaktionszeitmodelle](brms_RT.R)
+-  Berechnung der Herzfrequenzmodelle: [Herzfrequenzmodelle](brms_RRi.R)
+
+
+
+
+
+
