@@ -17,7 +17,7 @@ Die Ergebnisse wurden in einem Bericht zusammengefassst und alls Leistungsnachwe
 -  Berechnung der Reaktionszeitmodelle: [Reaktionszeitmodelle](brms_RT.R)
 -  Berechnung der Herzfrequenzmodelle: [Herzfrequenzmodelle](brms_RRi.R)
 
-Alle Rechte Vorbehalten. 
+Alle Rechte vorbehalten. 
 
 
 
