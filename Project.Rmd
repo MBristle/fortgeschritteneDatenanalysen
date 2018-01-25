@@ -3,19 +3,7 @@ title: " Appendix: Leistungsnachweis: fortgeschrittene Datenanalyse mit R"
 author: "Mirko Bristle"
 date: "27 10 2017"
 output: word_document
-header-includes:
-- \usepackage{booktabs}
-- \usepackage{longtable}
-- \usepackage{array}
-- \usepackage{multirow}
-- \usepackage[table]{xcolor}
-- \usepackage{wrapfig}
-- \usepackage{float}
-- \usepackage{colortbl}
-- \usepackage{pdflscape}
-- \usepackage{tabu}
-- \usepackage{threeparttable}
-- \usepackage[normalem]{ulem}
+
 ---
 
 ```{r setup, include=FALSE}
@@ -309,7 +297,9 @@ loo_behavior
 summary(M$`6`)
 dat <- ggpredict(M$`6`,
                  terms = c("Factor1", "Factor2","betweenCond"),ppd=T)
-plot(dat,alpha = 0.05, dodge = 0.5)
+saveRDS(dat,"Verhaltensdaten_plot.rds")
+plot(dat,alpha = 0.05, dodge = 0.5)  + labs(title = "Verhaltensdaten")   +
+  ylab("Visual Analoge Scale (1-100)") 
 ```
 
 ### Reaction Times
@@ -379,8 +369,9 @@ p_load(ggeffects)
 
 dat <- ggpredict(M_RRi$`12`, 
                  terms = c("Factor1", "Factor2","betweenCond"),ppd=T)
-plot(dat,alpha = 0.05, dodge = 0.5 )
-
+plot(dat,alpha = 0.05, dodge = 0.5 )+ labs(title = "Physiologie (RRi)")   +
+  ylab("Herzrate in BPM") 
+saveRDS(dat,"RRi_plot.rds")
 read_rds("models/RRi_12.rds")
 ```
 

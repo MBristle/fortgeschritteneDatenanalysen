@@ -39,5 +39,11 @@ vignettes/*.pdf
 
 mod/*
 Models/*
+Aufgaben/*
+tables/*
+img/*
+
 *.xlsx
 *.docx
+*.pdf
+*.tex

@@ -35,7 +35,7 @@ toc: true
 
 lang              : "english"
 class             : "man"
-output            : papaja::apa6_pdf
+output: papaja::apa6_pdf
 ---
 
 ```{r load_packages, include = FALSE}
@@ -132,13 +132,34 @@ Das resultierende Modell der Verhaltensdaten hatte auf Gruppenebene mit variiere
 
 Auf der Gruppenebene weist der Intercept der Versuchsperson einen Wert von $b = 10.9$ $(CI = [9;13.2])$ auf und der der Spielfelde $b= 14.3$ $(CI = [10,21.1]$). Allgemein lag der Intercept der Populationsebene um 50 % ($b= 55.4, CI = [47.4,63.7]$). Die Posteriorverteilung des Faktor 1 Ingroup ist leicht höher zur Bedingung Outgroup ($b=1.5, CI= [0.7;2.3]$) und auch bei dem Faktor 2 unterscheiden sich Team 1 ($b= -1.8, CI= [-2.8,-0.8]$) und Team 2 ($b= -2, CI= [-3,-1.1]$) von Selbst. Fussballspieler unterscheiden sich ebenfalls von nicht Fussballspielern ($b= 11.9, CI= [8.2,15.5]$).
 
+```{r,fig.cap="plotting example"}
+library(tidyverse)
+library(ggplot2)
+library(ggeffects)
+dat<-read_rds("Verhaltensdaten_plot.rds")
+names()
+
+plot(dat,alpha = 0.05, dodge = 0.5)  + labs(title = "Verhaltensdaten")   +
+  ylab("Visual Analoge Scale (1-100)") 
+```
+
+
 #### Reaktionszeit
 Das Modell der Reaktionszeiten konvergierte unter der Ex-Gaussverteilungsannahme nicht. Es wurde daraufhin die Weibull-Verteilungsfamilie verwendet, da diese die positive Schiefe immmer noch mit einbezieht. Der LOO-Modellvergleich der Reaktionszeiten ergab ein präferiertes Modell mit dem Gruppenfaktor VPn ($\Delta LOO = 1012.84, SE = 66.27$) und keinem Populationseffekte. Es gab keine divergenten Samples und alle $\hat{R} <= 1.02$. 
+
 
 #### Herzfrequenz
 Die Herzfrequenz veränderte sich auf Gruppenebene zwischen den VPn und auf der Populationsebene ergaben sich eine Verbesserung des Modells bei der Dreifachinteraktion zwischen Faktor 1, Faktor 2 und der Fussballerbedingung, weshalb das volle Modell beschrieben wird (wobei wegen begrenzter Ressource und der Sparsamkeit Willen keine Interaktion mit der Zeit angenommen wurde). 
 
 Trotzdem soll der Vollkommenheit wegen nicht auf die Effekte verzichtet werden. Es findet sich auf Ebene des Faktors 2 ein Effekt für Team 1 ($b=-0.13, CI= [-0.72;-0.25]$) und eine abweichende Posteriorverteilung für die zwischen Fussballer-Bedingung der Fussballer ($b=-8.28, CI= [-12.97;-3.35]$), sowie ein für die Zeit bei der 1. Sekunde ($b=-0.32, CI= [-0.55;-0.1]$), der. 4 Sekunde ($b=0.72, CI= [0.49;0.95]$), 5. Sekunde ($b=1.51, CI= [1.29;1.73]$), 6. Sekunde ($b=2.08, CI= [1.86;2.30]$), 7.Sekunde ($b=2.28, CI= [2.05;2.49]$), 8. Sekunde ($b=2.06, CI= [1.85;2.29]$) und 9. Sekunde ($b=1.48, CI= [1.25;1.70]$). Die Poseriorverteilungen der Interaktionseffekte unterschieden sich für die Bedingung Ingroup von Faktor 1 und  Fussballspieler ($b=0.38, CI= [0.05;0.71]$) von der Outgroup der Fussballspieler, sowie Faktor 2 mit Team 1 und Fussballspieler ($b=2.39, CI= [1.73;3.98]$) von Selbst der Fussballspieler und den beiden Dreifachinteraktionen Faktor 1 mit Ingroup , Faktor 2 mit Team 1 und Fussballspieler ($b=-2.07, CI= [-2.85;-1.35]$) und Faktor 1 mit Ingroup , Faktor 2 mit Team 2 und Fussballspieler ($b=-0.89, CI= [-1.36;-0.41]$) im Vergleich zu Ingroup, Faktor 2 mit sich selbst als Fussballspieler.
+
+```{r,fig.cap="plotting example2"}
+library(tidyverse)
+dat<-read_rds("RRi_plot.rds")
+plot(dat,alpha = 0.05, dodge = 0.5 )+ labs(title = "Physiologie (RRi)")   +
+  ylab("Herzrate in BPM") + x.axis
+```
+
 
 # Discussion
 Betrachtet man die Verhaltensdaten, so zeigen sich die erwarteten Haupteffekte der Faktoren 1 und  Faktor 2, wenn auch nur sehr gering. Die erwarteten Interaktionen blieben jedoch aus. Es kann also entgegen der Hypothese nicht davon ausgegangen werden, dass für den den Konkurrent mehr pessimismuss, bzw. für den für sich selbst mehr optimismus gezeigt wird, als für die entsprechenden Ingroup oder Outgroup - Teams.
@@ -159,5 +180,9 @@ Im Bezug auf den theoretischen Kontext wäre es interessant ein Vergleichsexperi
 
 # References
 
+
 \setlength{\parindent}{-0.5in}
 \setlength{\leftskip}{0.5in}
+\setlength{\parskip}{8pt}
+
+
