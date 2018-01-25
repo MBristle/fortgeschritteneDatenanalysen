@@ -10,7 +10,7 @@ Die Ergebnisse wurden in einem Bericht zusammengefassst und alls Leistungsnachwe
 
 ## Der Code wurde auf Github gemaintained:
 
-- [Projek-Datei](Project.Rmd) umfasst die Aufbereitung der Daten und alle Analysen sowie Kommentare zu den Daten. Diese ist die Grundlage für die Supplementory Information. 
+- [Projekt-Datei](Project.Rmd) umfasst die Aufbereitung der Daten und alle Analysen sowie Kommentare zu den Daten. Diese ist die Grundlage für die Supplementory Information. 
 ### Skripte
 - Funktion für die Berechnung der Stan-Modelle: [getBRMModel](Scripts/getBRMModel.R)
 -  Berechnung der Verhaltensmodelle: [Verhaltensmodelle](brms_b.R)
