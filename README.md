@@ -8,7 +8,7 @@ In diesem Repository finden sich die Code Snippets und R Markdown-Dateien für d
 
 Die Ergebnisse wurden in einem Bericht zusammengefassst und alls Leistungsnachweis des Kurses eingereicht.
 
-## Der Code wurde auf Github:
+## Der Code auf Github:
 
 - [Projekt-Datei](Project.Rmd) umfasst die Aufbereitung der Daten und alle Analysen sowie Kommentare zu den Daten. Diese ist die Grundlage für die Supplementory Information. 
 ### Skripte
