@@ -8,7 +8,7 @@ In diesem Repository finden sich die Code Snippets und R Markdown-Dateien für d
 
 Die Ergebnisse wurden in einem Bericht zusammengefassst und alls Leistungsnachweis des Kurses eingereicht.
 
-## Der Code wurde auf Github gemaintained:
+## Der Code wurde auf Github:
 
 - [Projekt-Datei](Project.Rmd) umfasst die Aufbereitung der Daten und alle Analysen sowie Kommentare zu den Daten. Diese ist die Grundlage für die Supplementory Information. 
 ### Skripte
@@ -17,7 +17,7 @@ Die Ergebnisse wurden in einem Bericht zusammengefassst und alls Leistungsnachwe
 -  Berechnung der Reaktionszeitmodelle: [Reaktionszeitmodelle](brms_RT.R)
 -  Berechnung der Herzfrequenzmodelle: [Herzfrequenzmodelle](brms_RRi.R)
 
-
+Alle Rechte Vorbehalten. 
 
 
 
