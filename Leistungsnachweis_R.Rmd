@@ -1,0 +1,163 @@
+---
+title             : "Einfluss von sozialem unrealistischem Optimismus auf Kardiovaskuläre Korrelate im Sportkontext"
+shorttitle        : "Sozialer unrealistischer Optimismus im Sportkontext"
+
+author: 
+  - name          : "Mirko Bristle"
+    affiliation   : "1"
+    corresponding : yes    # Define only one corresponding author
+    address       : "Baumgartenstrasse 31, 3018 Bern"
+    email         : "mirko.bristle@students.unibe.ch"
+
+
+affiliation:
+  - id            : "1"
+    institution   : "Department of Psychology, University of Bern, Bern, Switzerland"
+
+
+author_note: |
+  Semester: HS 2017 
+  
+  Supervised by: Andrew Ellis, Dr. Boris Mayer
+  
+  Immatrikulation number: 14-109-573
+
+
+
+bibliography      : ["/Users/mirko/Documents/bibTexLibrary/library.bib"]
+
+figsintext        : no
+figurelist        : no
+tablelist         : no
+footnotelist      : no
+lineno            : no
+toc: true
+
+lang              : "english"
+class             : "man"
+output            : papaja::apa6_pdf
+---
+
+```{r load_packages, include = FALSE}
+library("papaja")
+```
+
+```{r analysis_preferences}
+# Seed for random number generation
+set.seed(42)
+```
+
+\newpage
+Ob bei Banalitäten im Alltag oder bei grossen Lebensentscheidungen, gesunde Menschen tendieren in ihrer Sichtweise zu einem positiv gefärbten Bild der Zukunft. Die Verzerrung der Realität namens unrealistischer Optimismus drückt sich dadurch aus, dass positive Ereignisse überschätzt und negative Ereignisse gemessen an ihrer Grundrate unterschätzt werden[@Weinstein1996].
+Dieses Phänomen ist in der Bevölkerung weit verbreitet und unabhängig von Geschlecht, Ethnie oder Alter und kann sogar bei Tieren nachgewiesen werden [@Sharot2011a]. 
+
+Es muss an dieser Stelle zwischen zwei Arten unterschieden werden. Zum einen gibt es den sogenannten absoluten unrealistischen Optimismus, bei dem die absolute ("tatsächliche") Wahrscheinlichkeit für das eintreten eines Ereignisses unter- oder überschätzt wird (abhängig von Valenz) und dem vergleichenden unrealistischen Optimismus, bei dem die Wahrscheinlichkeit verglichen mit der Durchschnittsperson (normorientiert) unter- oder überschätzt wird [@Shepperd2002]. Um Letzteren zu messen wird das sogenante "komparative Rating", wie von Weinstein [-@Weinstein1980] eingeführt, verwendet, bei dem dei Personen angeben müssen, wie wahrscheinlich Ihre Chance verglichen mit einer anderen Person ist. Im Gegensatz zu diesem direkten Vergleich kann auch ein indirekter Verlgeich vorgenommen werden, in dem ein Rating für die eigene und die zu vergleichende Person abgegeben wird.
+
+Dieser beschribene unrealistische Optimismus ist aber nicht unabhängig von äusseren Faktoren, wie etwa Kontrolle [@Klein2002], Selbstwert [@Sweeny2006], affektiver Zustände [@Helweg-Larsen2001] und Basisraten-Information [@Weinstein1999]. Auch hat die Auftretenswahrscheinlichkeit der Situation selbst einen Einfluss auf die Wharscheinlichkeitseinschätzung, so dass häufige Situationen überschätzt und seltene unterschätzt werden, was durch eine egozentrische Verarbeitungsperspektive erklärt werden kann [@Chambers2003]. 
+
+Auch im Gesundheitsbereicht gibt es einige Korrelate mit unrealistischem Optimismus. So kann er etwa als Stresspuffer im Schulalltag dienen [@Eicher2014a] korreliert mit Lebenszufriedenheit, Hilfsbereitschaft, Kreativität und sparen von Vermögen [@Taylor1988]. Hingegen neigen extreme Optimisten zu unökonomischen Verhaltensweisen und haben eine höhere Wahrscheinlichkeit zu gesundheitsschädigendem Verhalten wie etwa zu rauchen [@Puri2007]. 
+
+## Social Identity Theory (SIT)
+Bei diesem Konstrukt geht es darum die Gruppenzugehörigkeit einer Person mit ihrem Intergruppenverhalten zu verbinden [@Turner1979]. Die Soziale Identität wird gebildet, in dem sich eine Person zu einer Gruppe zugehörig fühlt und sich somit automatisch von anderen Gruppen abgrenzt. Dieses Phänomen äussert sich in der Einstellung und dem Verhalten der Personen gegenüber den Gruppen[@Turner1975]. Dies äussert sich vor allem in einer Bevorzugung der Eigengruppe und weniger durch die Abwertung der Fremdgruppe [@Turner1979], was verstärkt wird, wenn die Person in der Eigengruppe der eigenen Person besonders ähnlich ist. Die Identifikation führt zu einer Beeinflussung des Selbstwertes bei dem durch einen sozial - motivationalen Prozess versucht wird das eigene Selbstkonzept durch den Status der Gruppe zu erhöhen [@Tajfel1987]. 
+
+### Sportkontext
+Diese Art der Identifikation kommt besonders auch im Sportkontext vor, bei dem besonders oft konkurrenzierende Situatioen auftauchen. So wurde etwa gezeigt, dass Personen mit einem hohen Grad der Identifikation Misserfolge und Erfolge als die Eigenen interpretierten [@Hirt1992a]. Dies wirkt sich auch auf die Einschätzung der Gewinnchancen der eigenen Mannschaft aus, wie im NFL-Kontext gezeigt werden konnte. Hierbei blieben die Gewinn-Chancen in gleicherweise unrealistisch optimistisch über die Saison, ohne Einfluss der Anzahl gewonnener oder verlorener Spiele[@Simmons2012]. Weiter konnte gezeigt werden, dass Personen, die aktive Fussballer sind sich besser in eine abstrahiertes Fussballszenario versetzen können als Nichtfussballer [@Babad1987a]. 
+
+## Elektrokariogramm (EKG)
+Das Tachogramm des EKG zeigt eine typische Wellenbewegung, die in drei Subwellen unterteilt werden kann. Jede dieser Wellenkomplexe spiegeln einen physiologischen phsiologischen Prozess der Herzmuskulatur wieder. Initiiert wird ein Herzschlag von einem Impuls ausgehend vom Sinus-Knoten. Die erste Welle ist die P-Welle, diese spiegelt die Kontraktion der Vorhofkammer bei der Blut in die Herzkammern gepumpt wird. Sie wird von dem deutlichsten Ausschlag, dem QRS-Komplex, gefolgt. Dieser wird durch die Kontraktion der Kammern hervorgerufen, bei welcher das Blut in den Körper und die Lunge abgegeben wird. Als letztes folgt die Repolarisierung des Impulses [Stern2012a]. 
+
+Organe des Autonomennervensystems werden überwiegend über das sympathische und parasympathische Nervensystem vom Zentralennervensystem beeinflusst. Diese wiederum reagieren auf die physiologische und psychologische Situation eines Menschen. Die Schlussfolgerung eines unidimensionalen Mechanismus wie etwa nach der Erregungstheorie nach Cannon [-@Cannon1929] ist aber zu kurz gegriffen. So muss von einer Kortikaler-, Autonomer- und Verhaltensebene als Aktivierungsursachen ausgegangen werden, welche sich in unterschiedlichen Erregungsmustern niederschlagen [@Lacey1967,@Stern2012a].
+
+Wie von Potter & Keene [-@Potter2012] gezeigt ändert sich die Herzfrequenz (RRi) abhängig von der Identifikation der Probanden. Dies wurde durch eine stärkere kognitive Beanspruchung erklärt und führt zu einem Abfall der Herzfrequenz. Auch zeigte sich ein Abfall der Herzfrequenz gegenüber negativ dargestellten Personen, wobei hier die Sozialeerwünschtheit als Mediator nicht ausgeschlossen werden kann. 
+
+Auf Grund der dargelegten Theorien soll in dieser Arbeit auf Verhaltenseben untersucht werden, ob SIT und unrealistisch Optimistische Processe vergleichbar sind und weiter ob diese durch die gleichen physiologischen Prozesse (EKG) aufrecht gehalten werden. In dieser Arbeit wird nur die Herzfrequenz betrachtet, da nur für diese eine Hypothese gefunden werden konnte.
+
+## Hypothesen
+
+- Es wird aufgrund der Theorie angenommen, dass die Ingroup bevorzugt wird, daher wird für diese erhöhte Werte auf der VAS erwartet im Vergleich zu Outgroup. Dies würde sich in der Physiologie mit einer niedrigeren Herzrate niederschlagen. 
+- Es wird für den Faktor der Gruppen erwartet, dass man für Einzelpersonen optimistischer ist, als für Gruppen (Team 1 & Team 2). 
+- Es wird weiter ein unterschied zwischen Fussballern und Nichtfussballern angenommen, bei dem Fussballer im Mittel höhere Ratings abgeben. Dies würde sich ebenfalls mit einem Abfall der Herzrate ausdrücken, der aber durch den Faktor der sportlichen Betätigung konfundiert sein kann. 
+- Wenn ein Haupteffekt für den Faktor 1 und 2 besteht, ist zu erwarten, dass dieser bei den Fussballspielern stärker ausfällt, als bei Nichtfussballspielern. 
+- Im gleichen Zug kann vermutet werden, dass eine Interaktionseffekt zwischen Faktor 1 und Faktor 2 und Fussballern bestehet, in dem Sinne, dass Fussballer sich besser in die Situation des Konkurrenten verglichen mit sich selbst versetzten können und somit sich in dieser Bedingung von einander unterscheiden. 
+
+# Methods
+
+## Participants
+In dieser Studie wurde eine Stichprobe von n = 60 Männern (30 Fussballspieler, 30 nicht Fussballspieler) getestet. Die Versuchspersonen (VPn) wurden aus Fussballvereinen und dem Versuchspersonenpool der Universität Bern rekrutiert. Sie waren zwischen 18 und 34 Jahren alt und hatten ein durchschnittliches Alter von 23.34 Jahren.  Aufgrund fehlerhafter Aufzeichnungen bei den physiologischen Messungen wurden vier Personen aus den physiologischen Analysen entfernt. Die Teilnahme am Experiment erfolgte freiwillig und wurde gegen Versuchspersonen Credits oder Geld entschädigt. Die Studie wurde von der Ethikkommission der Universität Bern geprüft und als unproblematisch eingestuft.
+
+## Material
+Das Experiment setzte sich aus zwei Blöcken zusammen. Im ersten wurde ein fiktives Fussfallspiel durchgeführt, bei dem die Probanden jeweils für eine Spielsituation die entsprechende Wahrscheinlichkeit angeben sollten, mit der der Ball beim Mitspieler ankieme. Dies wurde über eine Visualanalogue-Skala (VAS) erhoben (0-100 in Prozent), für die ebenfalls die Zeit der Antwort aufgezeichnet wurde (Reaktionszeit [RT] in s).
+
+Das fiktive Fussballspiel wurde durch verschiedene Spielsituationen operationalisiert, die jeweils ein Fussballfeld aus der Vogelperspektive zeigten. Die 22 Spieler (je Mannschaft 11), wurden durch farbliche Punkte (über Versuchspersonen ausbalanciert) dargestellt. Der Ball war ein weisser Kreis und der Spielzug wurde durch einen schwarzen Pfeil zwischen zwei Spielern angegeben. 
+
+Die Präsentation der Stimuli und die Aufzeichnung der VAS und der RT erfolte auf E-Prime [@PsychologySoftwareTools2012]. Zusätzlich wurden die Physiologischen Parameter (Impedanzanalyse, Elektromyographie, Elektrodermaleaktivität, Elektrokardiogramm) auf einem zweiten Rechner mit der Software AcqKnowledge vom Modul MP150 aufgezeichnet [@BIOPACSystemsInc.2016]. Für diese Auswertung wird nur das EKG Signal betrachtet. Alle Signale wurden mit 10000 Hz aufgezeichnet und Offline analysiert.
+In einem zweiten Schritt wurden Fragebögen erfasst, die in dieser Auswertung aber nicht weiter betrachtet werden. 
+
+## Procedure
+Da zwei VersuchsleiterInnen die Datenerhebung durch führten, wurde diese strikt nach einem Manual ausgeführt, um einem Versuchsleitereffekt möglichst entgegenzuwirken. Nach der Begrüssung mussten die Probanden die Einverständniserklärung unterschreiben um mit dem Experiment zu starten. Sie wurden hierbei schriftlich und mündlich über den Versuchsablauf aufgeklärt. Anschliessend wurde ein Affektrating ausgefüllt [Positive and Negative Affect Schedule (PANAS); @Krohne1993] und die physiologischen Messelektroden plaziert. Für das hier untersuchte Elektroencephalogramm (EKG) wurde je eine selbstklebende Napf-Elektrode mit vorherigem Reinigen der Haut durch Alkohol oberhalb des rechten Schlüsselbeins, unterhalb des Linken Rippenansatzes und eine Groundelektrode auf dem Nacken befestigt. 
+
+Anschliessend begann das Experiment mit dem Fussballparadigma. Hierfür wurden den Probanden eine Hintergrundgeschichte vorgegeben. Hierbei sollten sie sich vorstellen sie seien eine Fussballspieler (Selbst) und wollen sich bei einer Mannschaft bewerben (Ingroup 1). Jedoch gäbe es hier einen Konkurrent (Konkurrent), der sich ebenfalls für die Position bewirbt. Als nächstes wurde eine Konkurrierende Manschaft zu dem zukünftigen Fussballverein vorgestellt (Outgroup 1). Zusätlich sei der Proband starker Fan von einer auf internationalem Niveau spielenden Mannschaft (Ingroup 2), zu der ebenfalls eine konkurrierende Mannschaft vorgestellt wurde (Outgroup 2).  Das Experiment war in drei Blöcke unterteilt (jeweils 32 Trails; Selbst vs. Konkurrent, Ingroup 1 vs. Outgroup 1, Ingroup 2 vs. Outgroup 2), die jeweils randomisiert vorgegeben wurden. Ein Trail bestand in der Präsentation zweier Konkurrenzierender Gruppen (2 Sek.) und anschliessend einer Spielsituation (max 10 Sek.), für die die Antwort gegeben wurde.
+Die Farben der Manschafften (Zuordnungskriterium) waren zwischen den Versuchspersonen ausbalanciert und die Luminanz, sowie der Kontrast der Farben konstantgehalten. Als letzter Schritt wurden die Fragebogen erhoben und die entgeltung ausbezahlt. 
+
+
+## Data analysis
+### Design
+Das Studiendesign weisst eine 2 (Fussballer/ nicht Fussballer) x 2 Faktor 1 (Ingroup [ Selbst, Ingroup 1, Ingroup2] / Outgroup [Konkurrent, Outgroup 1, Outgroup 2]) x 3 Faktor 2 (Person [Selbst, Konkurrent] / Team 1 [Ingroup 1, Outgroup 1] / Team 2 [Ingroup 2, Outgroup 2]) Struktur. Hierbei wurden Fussballer und Nichtfussballer als eine Organismusvariable selektiert. Hingegen wurde die Variablen Selbst, Konkurrent, Ingroup 1,2 und Outgroup 1,2 innerhalb jeder Versuchsperson variiert.
+
+
+### Aufbereitung 
+In diesem wird die Aufbereitung des Signals des Elektrokardiogramm beschrieben, wie es für jede VPn durchgeführt wurde. Als erstes wurde das Signal auf 5000 Hz gesampelt. Anschliessend wurde das Signal mit einem 0.1 Hz FIR Highpass-Filter (Blackman61) mit 2000 Coeffizienten und einem 40 Hz FIR Lowpass-Filter (Blackman61)  mit 500 Coeffizienten gefiltert. Daraufhin folgte die Bestimmung des ECG signals anhand der integrierten Funktion ecgpuwave, welcher eine modifizierte Version des Pan-Tomkins-Algrithmus zugrunde liegt. Diese klassifizierten Parameter (QRS_pnset, QRS_peak, QRS_end, T_onset, T_peak, T_end, P_Oonset, P_peak, P_end) wurden doppelt von Hand kontrolliert. Für die extrahierung der Epochen wurden digitale Marker (trigger von E-Prime) genutzt und als Referenzpunkt genommen (entweder Präsentation der Gruppe oder des Spielfeldes). Die interessierenden Masse waren P_hight ($P\_peak - P\_onset$), QRS_width ($time(QRS\_end) - time(QRS\_onset)$), QT ($QRS\_onset - T\_peak$),  QT_width ($time(QRS\_end) - time(T\_peak)$),  R_hight ($QRS\_onset - QRS\_peak$), RRi ($time(QRS\_peak_{t-1}) - time(QRS\_peak_{t})$), ST ($time(QRS\_end) - time(T\_end)$) und STev ($time(QRS\_end + 0.24) - time(QRS\_end)$). Für jedes dieser Signale wurde für jede Epoche in Sekundenschritten (interpolierter Mittelwert) 10 Messpunkte, sowie 2 Baselinesekunden vor Beginn der Epoche, aufgezeichnet. Epochen mit Artefakten wurden anschliessend aus der Analyse entfernt. Die Messpunkte wurden auf 3 Standardabweichungen vom Mittelwert der Person auf diesem Messpunkt gefiltert und anschliessend mit den Verhaltensdaten zusammengeführt. 
+
+
+### Univariates baysian multilevel Modell 
+Für die Statistische Analyse wurden baysian multilevel Modelle gerechnet, die jeweils anhand von Modellvergleichen evaluiert wurden. Alle Modelle wurden in R [@RDevelopmentCoreTeam2016] mit dem Package "brms" [@buerkner2016brms] gerechnet. 
+Als erstes wurde jeweils die Gruppeneffekte VPn und Spielfeld zu einem NullModell hinzugefügt. Anschliessend wurde auf der Ebene der Populationseffekten die beiden Innerhalb-Subjekt-Variablen ([Selbst/Team1/Team2],[Einzel/Gruppe]) mit Interaktionseffekt und dann die Zwischen-Subjekt-Variable [Fussballer/Nichfussballer] mit und ohne Interaktionseffekt (um diesen zu prüfen) hinzugefügt.
+
+Alle Modelle hatten 2000 warm-up Samples und 2000 iteration mit 4 Chains. Der Aktzeptanzparameter wurde bei 0.8 gesetzt. Um das beste Modell zu den Daten zu finden, wurden Modellvergleiche durchgeführt. Als Vergleichskriterium wurde jeweils ein Leave-One-Out-Vergleich (LOO) vorgenommen und ein Modell als besser bewertet, wenn es ausserhalb des 95% Konfidenzintervalls des Standardfehlers des LOO liegt. Es wird eine Bottom-Up Auswahl vorgenommen, wobei immer mit dem NullModell begonnen wird und successive alle Gruppeneffekte und anschliessend Populationseffekte hinzugefügt werden. Alle Effekte werden mit einem Credebilitäts-Intervall (CI) von 95 % angegeben. Für die Modellvergleiche wird die Differenz der LOO-Vergleiche ($\Delta LOO$) mit dem Standardfehler (SE) angegeben.
+
+
+#### Verhaltensdaten
+Für die Verhaltensdaten wurden die oben beschriebenen Modelle gerechnet, wobei hier auch noch der Interaktionseffekt zwischen den beiden Innerhalb-Subjekt Faktoren evaluiert wurde. Familie der Daten wurde eine Studentverteilung gewählt, da für eine ordinale Regression zuviele Kategorien existierten. Die VAS wird somit als intervallskaliert angesehen. 
+
+#### Reaktionszeiten
+Auch für die Reaktionszeiten wurden die oben beschrieben Modelle gerechnet. Hier wurde allerdings ein exponentielle Gaussverteilung als Prior gewählt, da dies die positive Schiefe der RTs mit am besten in mit einbezieht [@Moscoso2009]. Für die Reaktionszeiten wurden Trails ausgeschlossen, die nicht beantwortet wurden oder bei denen der Trail nach 10 Sekunden beendet wurde (~20 %).
+
+#### EKG Messungen 
+ Da über die Verteilung der EKG nur wenig bekannt ist, wurde ein uninforativer halb Student-t Prior (wie er standardmässig in Stan und somit BRMS implementiert ist) verwendet. Weiter wurden zusätzlich die Messpunkte als Zeitdimension auf Ebene der Populationseffekte hinzugefügt (ebenfalls ohne und mit Interaktionsterm mit allen anderen Populationseffekten). Hier wurde wegen der grossen Komplexität des Modells nur auf Hypothesenbasierende Effekte getestet und nicht eine Daten getriebene Selektion des Modells vorgenommen.
+
+# Results
+
+#### Verhalten
+Das resultierende Modell der Verhaltensdaten hatte auf Gruppenebene mit variierendem Intercept, nicht aber Slope die VPn ($\Delta LOO = 1199.75, SE = 69.5$). Auf der Populationsebene befinden sich Faktor 1  und Faktor 2 ($\Delta LOO = 2964.09, SE = 97.56$) , sowie zwischen Subjekt Bedinung der Fussballler ($\Delta LOO =  38.17, SE = 12.28$) . Der Interaktionseffekt zwischen Faktor 1 und Faktor 2 und der Interaktionseffekt zwischen Fussballer und den Faktoren unterschied sich nicht vom Standardfehler des LOO-Vergleichs mit dem entsprechenden Modell ohne Interaktionseffekt. Das Modell weisst keine divergenten Samples auf und alle Effekte haben ein $\hat{R}$ <= 1.02  mit einer maximalen Treedepth von 8. Das Modell weisst einen geschätzten $R^2$ Wert von $0.526$ auf.
+
+Auf der Gruppenebene weist der Intercept der Versuchsperson einen Wert von $b = 10.9$ $(CI = [9;13.2])$ auf und der der Spielfelde $b= 14.3$ $(CI = [10,21.1]$). Allgemein lag der Intercept der Populationsebene um 50 % ($b= 55.4, CI = [47.4,63.7]$). Die Posteriorverteilung des Faktor 1 Ingroup ist leicht höher zur Bedingung Outgroup ($b=1.5, CI= [0.7;2.3]$) und auch bei dem Faktor 2 unterscheiden sich Team 1 ($b= -1.8, CI= [-2.8,-0.8]$) und Team 2 ($b= -2, CI= [-3,-1.1]$) von Selbst. Fussballspieler unterscheiden sich ebenfalls von nicht Fussballspielern ($b= 11.9, CI= [8.2,15.5]$).
+
+#### Reaktionszeit
+Das Modell der Reaktionszeiten konvergierte unter der Ex-Gaussverteilungsannahme nicht. Es wurde daraufhin die Weibull-Verteilungsfamilie verwendet, da diese die positive Schiefe immmer noch mit einbezieht. Der LOO-Modellvergleich der Reaktionszeiten ergab ein präferiertes Modell mit dem Gruppenfaktor VPn ($\Delta LOO = 1012.84, SE = 66.27$) und keinem Populationseffekte. Es gab keine divergenten Samples und alle $\hat{R} <= 1.02$. 
+
+#### Herzfrequenz
+Die Herzfrequenz veränderte sich auf Gruppenebene zwischen den VPn und auf der Populationsebene ergaben sich eine Verbesserung des Modells bei der Dreifachinteraktion zwischen Faktor 1, Faktor 2 und der Fussballerbedingung, weshalb das volle Modell beschrieben wird (wobei wegen begrenzter Ressource und der Sparsamkeit Willen keine Interaktion mit der Zeit angenommen wurde). 
+
+Trotzdem soll der Vollkommenheit wegen nicht auf die Effekte verzichtet werden. Es findet sich auf Ebene des Faktors 2 ein Effekt für Team 1 ($b=-0.13, CI= [-0.72;-0.25]$) und eine abweichende Posteriorverteilung für die zwischen Fussballer-Bedingung der Fussballer ($b=-8.28, CI= [-12.97;-3.35]$), sowie ein für die Zeit bei der 1. Sekunde ($b=-0.32, CI= [-0.55;-0.1]$), der. 4 Sekunde ($b=0.72, CI= [0.49;0.95]$), 5. Sekunde ($b=1.51, CI= [1.29;1.73]$), 6. Sekunde ($b=2.08, CI= [1.86;2.30]$), 7.Sekunde ($b=2.28, CI= [2.05;2.49]$), 8. Sekunde ($b=2.06, CI= [1.85;2.29]$) und 9. Sekunde ($b=1.48, CI= [1.25;1.70]$). Die Poseriorverteilungen der Interaktionseffekte unterschieden sich für die Bedingung Ingroup von Faktor 1 und  Fussballspieler ($b=0.38, CI= [0.05;0.71]$) von der Outgroup der Fussballspieler, sowie Faktor 2 mit Team 1 und Fussballspieler ($b=2.39, CI= [1.73;3.98]$) von Selbst der Fussballspieler und den beiden Dreifachinteraktionen Faktor 1 mit Ingroup , Faktor 2 mit Team 1 und Fussballspieler ($b=-2.07, CI= [-2.85;-1.35]$) und Faktor 1 mit Ingroup , Faktor 2 mit Team 2 und Fussballspieler ($b=-0.89, CI= [-1.36;-0.41]$) im Vergleich zu Ingroup, Faktor 2 mit sich selbst als Fussballspieler.
+
+# Discussion
+Betrachtet man die Verhaltensdaten, so zeigen sich die erwarteten Haupteffekte der Faktoren 1 und  Faktor 2, wenn auch nur sehr gering. Die erwarteten Interaktionen blieben jedoch aus. Es kann also entgegen der Hypothese nicht davon ausgegangen werden, dass für den den Konkurrent mehr pessimismuss, bzw. für den für sich selbst mehr optimismus gezeigt wird, als für die entsprechenden Ingroup oder Outgroup - Teams.
+Die Haupteffekte zeigen aber, dass für die Einzelpersonen leicht höhere und somit optimistischere Wahrscheinlichkeiten abgegeben wurden, als für die Teams. In gleicher Weise wurden für die Ingroup leicht optimistischere Wahrscheinlichkeiten abgegeben, als für die Outgroup. Die Reaktionszeiten zeigen keinen Effekt. Dies kann auf einen ähnliches Aufmerksamkeitsniveau für alle Trails deuten, kann aber auch auf Grund der hohen Ausschlussrate sein. 
+Bei der Seminararbeit mussten bezüglich der Physiologie grosse Kompromisse eingegagnen werden. Da die Zeitkomplexität relativ hoch ist wurde, obwohl mehr erhoben, nur die Herzrate betrachtet. Auch bei der Auswertung dieser mussten einschneidende Kompromisse eingegangen werden, die kurz erläutert werden sollen. Ein exhausiver Modellvergleich wäre hier ebenfalls nötig gewesen um konkrete Aussagen zu machen, war aber auf Grund begrenzter Ressourcen nicht möglich. Die Beschreibung des Modells ist daher nur mit Vorbehalt zu betrachten, da wir ohne Kreuzvalidierung gefahrlaufen in unserem Fall, dass das Modell unter Umständen Overfittet ist, was durch die übergrosse Varianz (Sensitivität) bei kleinem Bias (Approximationsfehler) zu einem grossen Generalisierungsfehler führen kann. In den Supplementory Information wurden einige Modellvergleiche mit einer nicht vollständigen Top-Down Selektion durchgeführt. Alle Vergleiche, bei denen kein Interaktionseffekt mit der Zeit besteht, wiesen eine Verschlechterung der LOO-Validierung auf. Der einzig gerechnete Interaktionseffekt mit der Zeit zwischen Fussballer-Bedingung und Faktor 2, führte zu einer besseren Beschreibung der Daten, ohne, dass die Dreifachinteraktion im Modell war. Dies deutet darauf hin, dass wir das Modell ohne Einbezug der Zeit aber Underfitten, womit wir davon ausgehen können, dass durch den Einbezug der Interaktionen mit der Zeit die Sensitivität sowie der Approximationsfehler weiter gesenkt werden könnten. 
+Der Verlauf der Zeit deutet auf eine typischen Zeitverlauf, der aber wie oben beschrieben wohl kaum unabhängig von den anderen Faktoren ist. Es kann daher auch zu Auslöschungen von Effekten kommen, wodurch die Komplexität unterschätzt würde. Auf Physiologischer Ebene liegt Team 1 tiefer als Einzelpersonen, während Team 2 sich nicht von diesen unterscheidet. Jedoch dreht sich dieser Effekt drastisch um für Fussballspieler, so dass hier eine erhöhte Herzrate für Team 1 vorhergesagt wird. Weiter zeigt sich im Mittel eine Abnahme der Posteriorverteilung der Herzrate bei Fussballspielern, für die Bedingungen Team 1 und Team 2 Ingroup verglichen mit der Bedingung Team 1 und Team 2 Outgroup. Die Ähnliche Reaktionszeit über alle Gruppen könnte auf einen ähnliches Aufmerksamkeitsniveau deuten, kann aber auch aufgrund einer nicht akuraten Modellierung zustande kommen.
+
+Während die Verhaltensdaten die erste Hypothese unterstützen, alle weiteren Annahmen aber nicht halten können, zeigt sich in der Herzfrequenz ein nicht klar interpretierbares Bild. Während der Haupteffekt in Richtung höherer Beanspruchung kognitiver Ressourcen auf für Team 1 Interpretiert werden könnte, wird es bei den Fussballspielern schwierig. Hier kann gibt es eine allgemein tiefere Verarbeitung für Selbst und Team 2 bei der Outgroup, während für die Ingroup im Vergleich zur Outgroup die Verarbeitung für Team 1 und Team 2 zunehmen und für Selbst gleich bleiben. Es kann, wie oben darauf hingewiesen, nur speklativ von den Effekten der Herzrate ausgegangen werden. 
+
+Allgemein scheint sich unrealistischer Optimismus zwischen Ingroup und Outgroup und zwischen Einzelpersonen und verschieden artiger Teams auf Verhaltensbasis und der physiologischen Basis zu geben, wenn auch dieser teils nur sehr klein ist und noch weiter untersucht werden muss. Deutlichster Unterschied ist aber bei weitem der Unterschied zwischen Fussballern und Nichtfussballern. Dieser kann wie in der Einleitung bereits erwähnt durch die unterschiedliche Identifikation mit den Szenarien oder aber auch auf physiologischer Ebene durch die unterschiedliche sportliche und gesundheitliche Grundrate, welche nicht miterhoben wurde. 
+
+In Zukunft müssten der Faktor Zeit noch mit einbezogen werden, um zu sehen, zu welchem Zeitpunkt die effekte sich abspielen. Auch wäre es gut die Reaktion durch eine Verzögerten Antwort von der Herzrate zu trennen und so weniger konfundierte Effekte zu bekommen. Weiter sollte die Sportlichkeit oder allgemeine Gesundheit mitberücksichtigt werden, um einen verstärkten effekt der Identifikation mit dem Szenario im Experiment festzustellen. Es sollte noch besser evaluiert werden, weshalb die Ex-Gaussverteilungsfamilie bei den Reaktionszeiten nicht konvergierte und welche die optimale Alternative ist. 
+
+Im Bezug auf den theoretischen Kontext wäre es interessant ein Vergleichsexperiment im Quasiexperimentellen Kontext durchzuführen, bei dem die Mannschaften nicht randomisiert zugewiesen werden, sondern ausschliesslich aus richtigen Fussballern und Fussballfans selektiert würde. Dies könnte zu deutlicheren Effekten führen, da hier eine höhere Identifikation durch eine höhere Alltagsrelevanz angenommen werden kann. Weiter sollte wie in der Optimismusforschung gängig untersucht werden, wie dieser Optimismus aufrecht erhalten wird [@Sharot2016].
+
+
+\newpage
+
+# References
+
+\setlength{\parindent}{-0.5in}
+\setlength{\leftskip}{0.5in}

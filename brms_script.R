@@ -1,14 +1,25 @@
+
+#!/usr/bin/env Rscript
+args = commandArgs(trailingOnly=TRUE)
+
+if (length(args)!=0){
+  print(class(as.numeric(args)))
+  
+}
+
 # load necessary library files
 if (!require("pacman")) install.packages("pacman")
 library(pacman)
 p_load(readr)
 p_load(lme4)
 p_load(tableone)
+p_load(dplyr)
 p_load(ggplot2)
 p_load(merTools)
 p_load(brms)
+p_load(shinystan)
 p_load(parallel)
-p_load(dplyr)
+
 
 options (mc.cores=parallel::detectCores ()) # Run on multiple cores
 #physio<-na.omit(filter(PhysioData_1,(grepl("Stimulus",Target))&(Time!=-2)))
@@ -36,62 +47,67 @@ getBRMModel <- function(dataframe=NULL,form=NULL,measurement=NULL,data=NULL,name
   
   out <- tryCatch(
     {
-      read_rds(paste0(path,measurement,"_",name,".rds"))
+      
+
+        error("JUST errored")
+        read_rds(paste0(path,measurement,"_",name,".rds"))
     },
     error=function(cond) {
-      #message(cond)
-      #cat(paste("\n\nFile does not seem to exist: ", paste0(path, name), "\nnew Model will be calculated and saved with the specified name. \nGo grab a cup of coffee  and do 10 Push-ups:)\n\n"))
+      message(cond)
+      cat(paste("\n\nFile does not seem to exist: ", paste0(path, name), "\nnew Model will be calculated and saved with the specified name. \nGo grab a cup of coffee  and do 10 Push-ups:)\n\n"))
       
-      #model<-brm(formula,data = data,prior=prior,autocor=autocor)
-      model<-lmer(form,data = data_f)
+      model<-brm(form,data = data_f,prior=prior,autocor=autocor)
+      # model<-lmer(form,data = data_f)
+      cat(paste("Finished model: ",as.character(form) ))
       saveRDS(model,paste0(path,measurement,"_",name,".rds"))
       return(model)
     }
-  )    
+)
   return(out)
-}
-
-
-names<-list(#"m0",
-            "m1a",
-            "m1b",
-            
-            "m2a",
-            "m2b",
-            "m2c",
-            
-            "m3a",
-            "m3b"
-)
-formulas<-list(#"Value~1",
-               
-               "Value~1+(1|BiopacSubject)", 
-               "Value~1+(1|Spielfeld)",
-               
-               "Value~1+Factor1*Factor2 + (1|BiopacSubject)+ (1|Spielfeld)",
-               "Value~1+Factor1*Factor2 + betweenCond + (1|BiopacSubject)+ (1|Spielfeld)",
-               "Value~1+Factor1*Factor2 * betweenCond + (1|BiopacSubject)+ (1|Spielfeld)",
-               
-               "Value~1+Factor1*Factor2 * betweenCond + Time + (1|BiopacSubject)+(1|Spielfeld)",
-               "Value~1+Factor1*Factor2 * betweenCond * Time + (1|BiopacSubject)+(1|Spielfeld)"
-)
-
-
-measurement<-list("Phight",
-                  "QT",
-                  "Rhight",
-                  "RRi",
-                  "ST"
-)
-models<-lapply(measurement,function(x,y){within(y,measurement<-x)},y= data_frame(formulas,names)) %>% bind_rows()
-models <- split(models, seq(nrow(models)))
-
-# Calculate the number of cores
-#no_cores <- detectCores() - 1
-# Initiate cluster
-#cl <- makeCluster(no_cores)
-#clusterExport(cl, list("getBRMModel","read_rds"))
-#est_model<-parLapply(cl,models,function(x,y){getBRMModel(dataframe = x,data=y,path = "models/")},y=physio)
-est_model<-lapply(models[1:3],function(x,y){getBRMModel(dataframe = x,data=y,path = "models/")},y=physio)
-
-#stopCluster(cl)
+  }
+  
+  
+  names<-list(1:14
+  )
+  formulas<-list("Value~1",
+                 
+                 "Value~1+(1|BiopacSubject)",
+                 "Value~1+(1|Spielfeld)",
+                 
+                 "Value~1+Factor1 + (1|BiopacSubject)",
+                 "Value~1+Factor2 + (1|BiopacSubject)",
+                 
+                 "Value~1+Factor1+Factor2 + (1|BiopacSubject)",
+                 "Value~1+Factor1*Factor2 + (1|BiopacSubject)",
+                 
+                 "Value~1+Factor1+ betweenCond + (1|BiopacSubject)",
+                 "Value~1+Factor1 * betweenCond + (1|BiopacSubject)",
+                 
+                 "Value~1+Factor2+ betweenCond + (1|BiopacSubject)",
+                 "Value~1+Factor2 * betweenCond + (1|BiopacSubject)",
+                 
+                 "Value~1+Factor1*Factor2 + betweenCond + (1|BiopacSubject)",
+                 "Value~1+Factor1*Factor2 * betweenCond + (1|BiopacSubject)",
+                 
+                 "Value~1+Factor1*Factor2 * betweenCond + Time + (1|BiopacSubject)"
+  )
+  
+  
+  measurement<-list("Phight",
+                    "QT",
+                    "Rhight",
+                    "RRi",
+                    "ST"
+  )
+  models<-lapply(measurement,function(x,y){within(y,measurement<-x)},y= data_frame(formulas,names)) %>% bind_rows()
+  models <- split(models, seq(nrow(models)))
+  # Calculate the number of cores
+  #no_cores <- detectCores() - 1
+  # Initiate cluster
+  #cl <- makeCluster(no_cores)
+  #clusterExport(cl, list("getBRMModel","read_rds"))
+  #est_model<-parLapply(cl,models,function(x,y){getBRMModel(dataframe = x,data=y,path = "models/")},y=physio)
+  est_model<-lapply(models[args],function(x,y){getBRMModel(dataframe = x,data=y,path = "models/")},y=physio)
+  
+  #stopCluster(cl)
+  

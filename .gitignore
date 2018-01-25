@@ -36,3 +36,8 @@ vignettes/*.pdf
 *.rds
 
 *.RData
+
+mod/*
+Models/*
+*.xlsx
+*.docx
