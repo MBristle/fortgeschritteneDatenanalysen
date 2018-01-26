@@ -47,3 +47,9 @@ Other/*
 *.docx
 *.pdf
 *.tex
+
+*.png
+
+*.dvi
+
+*.fff
