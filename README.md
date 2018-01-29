@@ -1,12 +1,12 @@
 # Fortgeschrittene Datenanalysen mit R
 
-In diesem Repository finden sich die Code Snippets und R Markdown-Dateien für die durchgeführte Analyse. Folgende Schritte wuden dabei durchgeführt:
+In diesem Repository finden sich die Code Snippets und R Markdown-Dateien für die durchgeführte Analyse (siehe [Supplementory Information](SupplementaryInformation.pdf))und den Leistungsnachweis (Rmd/Papaja). Folgende Schritte wuden dabei durchgeführt:
 
 - Aufbereitung der Daten
 - Visuelle Inspektion und Ausschluss von Probanden
 - Bayesian multi level analysis (brms)
 
-Die Ergebnisse wurden in einem Bericht zusammengefassst und alls Leistungsnachweis des Kurses eingereicht.
+Die Ergebnisse wurden in einem Bericht zusammengefassst und alls [Leistungsnachweis](Leistungsnachweis_R.pdf) des Kurses eingereicht.
 
 ## Der Code auf Github:
 
