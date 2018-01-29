@@ -53,3 +53,5 @@ Other/*
 *.dvi
 
 *.fff
+
+!Leistungsnachweis_R.pdf
